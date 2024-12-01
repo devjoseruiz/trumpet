@@ -4,8 +4,13 @@
     "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
-            "app\\": "./src/"
+            "app\\": "./"
         }
     },
-    "require": {}
+    "require": {
+        "php": "^8.0"
+    },
+    "config": {
+        "vendor-dir": "./vendor"
+    }
 }
