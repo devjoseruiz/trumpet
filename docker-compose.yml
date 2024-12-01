@@ -1,0 +1,70 @@
+services:
+  php:
+    image: php:8.2-fpm
+    container_name: trumpet-php
+    volumes:
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    environment:
+      - PHP_MEMORY_LIMIT=512M
+    networks:
+      - trumpet-network
+
+  nginx:
+    image: nginx:latest
+    container_name: trumpet-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - php
+    networks:
+      - trumpet-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: trumpet-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: trumpet_db
+      MYSQL_USER: trumpet_user
+      MYSQL_PASSWORD: trumpet_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - trumpet-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: trumpet-phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: rootpass
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - trumpet-network
+
+  composer:
+    image: composer:latest
+    container_name: trumpet-composer
+    volumes:
+      - ./:/app
+    working_dir: /app
+    entrypoint: composer
+    networks:
+      - trumpet-network
+
+networks:
+  trumpet-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
