@@ -2,8 +2,8 @@
 
 namespace app\controllers;
 
-use app\core\Application;
 use app\core\Controller;
+use app\core\Request;
 
 class SiteController extends Controller
 {
@@ -17,9 +17,9 @@ class SiteController extends Controller
         return $this->render('rate');
     }
 
-    public function handleRate()
+    public function handleRate(Request $request)
     {
-        // TODO: implement form processing
-        return 'Process rating form';
+        $body = $request->getBody();
+        return $this->render('rate', $body);
     }
 }

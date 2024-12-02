@@ -61,7 +61,7 @@
     </div>
 
     <h1 class="project-title">Trumpet MVC Framework</h1>
-    <p class="project-subtitle">A lightweight, modern PHP MVC framework for building elegant web applications</p>
+    <p class="project-subtitle">A lightweight, modern PHP MVC framework for building elegant web applications.</p>
 
     <div class="features-grid">
         <div class="feature-item">
