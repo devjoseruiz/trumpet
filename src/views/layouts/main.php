@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trumpet MVC Framework</title>
 
@@ -107,10 +108,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="/" class="nav-brand">Trumpet MVC</a>
+            <a href="/" class="nav-brand">Trumpet</a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/">🏠 Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/rate">⭐ Rate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/devjoseruiz/trumpet-mvc-framework" target="_blank">🍴
+                        Fork</a>
                 </li>
             </ul>
         </div>
