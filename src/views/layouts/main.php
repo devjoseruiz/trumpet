@@ -63,6 +63,10 @@
             color: #2c3e50;
         }
 
+        .nav-separator {
+            border-left: 1px solid #ccc;
+        }
+
         .main-content {
             min-height: calc(100vh - 160px);
             padding: 2rem 0;
@@ -119,6 +123,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://github.com/devjoseruiz/trumpet-mvc-framework" target="_blank">🍴
                         Fork</a>
+                </li>
+                <li class="nav-item nav-separator"></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">🔐 Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">✅ Register</a>
                 </li>
             </ul>
         </div>
