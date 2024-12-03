@@ -1,60 +1,3 @@
-<style>
-    .home-container {
-        text-align: center;
-        padding: 3rem 1rem;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .logo-container {
-        margin-bottom: 2rem;
-    }
-
-    .logo-svg {
-        width: 120px;
-        height: 120px;
-        fill: #2c3e50;
-    }
-
-    .project-title {
-        font-size: 2.5rem;
-        color: #2c3e50;
-        margin-bottom: 1rem;
-    }
-
-    .project-subtitle {
-        font-size: 1.2rem;
-        color: #7f8c8d;
-        margin-bottom: 2rem;
-    }
-
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-        text-align: left;
-    }
-
-    .feature-item {
-        padding: 1.5rem;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature-title {
-        font-size: 1.2rem;
-        color: #2c3e50;
-        margin-bottom: 0.5rem;
-    }
-
-    .feature-description {
-        color: #666;
-        line-height: 1.6;
-    }
-</style>
-
 <div class="home-container">
     <div class="logo-container">
         <img class="logo-svg" src="/assets/img/favicon.svg" alt="Trumpet Logo">
@@ -66,23 +9,66 @@
     <div class="features-grid">
         <div class="feature-item">
             <h3 class="feature-title">🚀 Modern Architecture</h3>
-            <p class="feature-description">Built with PHP 8.2+ and following modern development practices and design
-                patterns.</p>
+            <p class="feature-description">Harness the power of PHP 8.2+ with cutting-edge design patterns and best
+                practices.</p>
         </div>
 
         <div class="feature-item">
             <h3 class="feature-title">🎯 Simple & Intuitive</h3>
-            <p class="feature-description">Clean and intuitive API design makes development fast and enjoyable.</p>
+            <p class="feature-description">Designed for simplicity, offering an API that makes coding seamless and
+                enjoyable.</p>
         </div>
 
         <div class="feature-item">
             <h3 class="feature-title">🔧 Easily Customizable</h3>
-            <p class="feature-description">Customize the framework to suit your needs with a flexible configuration.</p>
+            <p class="feature-description">Tailor the framework effortlessly with a configuration system that adapts to
+                you.</p>
         </div>
 
         <div class="feature-item">
             <h3 class="feature-title">🐳 Docker Ready</h3>
-            <p class="feature-description">Comes with a pre-configured Docker environment for easy development.</p>
+            <p class="feature-description">Get started instantly with a pre-configured Docker setup for hassle-free
+                development.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3 class="feature-title">📦 Easy Installation</h3>
+            <p class="feature-description">Install it in seconds using a single Composer command.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3 class="feature-title">🗄️ Migrations</h3>
+            <p class="feature-description">Simplify your database updates with an intuitive migration system.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3 class="feature-title">🔒 Form Validations</h3>
+            <p class="feature-description">Ensure data integrity with robust and easy-to-use form validation tools.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3 class="feature-title">👥 User Authentication</h3>
+            <p class="feature-description">Quickly set up secure user authentication with pre-built functionalities.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3 class="feature-title">📡 Session Management</h3>
+            <p class="feature-description">Effortlessly manage user sessions with built-in, streamlined tools.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3 class="feature-title">🔗 Middleware</h3>
+            <p class="feature-description">Enhance your app’s functionality with customizable middleware support.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3 class="feature-title">🎉 Application Events</h3>
+            <p class="feature-description">Easily handle app-wide events with an integrated event management system.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3 class="feature-title">🛣️ Routing</h3>
+            <p class="feature-description">Define clear and efficient routes with a simplified routing engine.</p>
         </div>
     </div>
 </div>

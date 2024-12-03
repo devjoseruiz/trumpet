@@ -11,7 +11,7 @@ $app = new Application(dirname(__DIR__));
 $app->router->get('/', [SiteController::class, 'home']);
 
 $app->router->get('/rate', [SiteController::class, 'rate']);
-$app->router->post('/rate', [SiteController::class, 'handleRate']);
+$app->router->post('/rate', [SiteController::class, 'rate']);
 
 $app->router->get('/login', [AuthController::class, 'login']);
 $app->router->post('/login', [AuthController::class, 'login']);
