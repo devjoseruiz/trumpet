@@ -9,7 +9,7 @@ Clone the repository: `git clone https://github.com/devjoseruiz/trumpet-mvc-fram
 ### Docker installation
 
 1. Navigate to the project directory: `cd trumpet-mvc-framework`.
-2. Install the dependencies: `docker-compose run --rm composer install`.
+2. Install the dependencies: `docker-compose exec php composer install`.
 3. Start the application: `docker-compose up -d`. You can access the application at `http://localhost:8080`.
 
 ### Local installation
