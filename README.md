@@ -1,8 +1,8 @@
 # Trumpet MVC Framework
 
-<center><img src="https://raw.githubusercontent.com/devjoseruiz/trumpet-mvc-framework/refs/heads/master/src/public/assets/img/favicon.svg" alt="Trumpet Logo" width="100"></center>
+<div align="center">
 
-<center>
+<img src="https://raw.githubusercontent.com/devjoseruiz/trumpet-mvc-framework/refs/heads/master/src/public/assets/img/favicon.svg" alt="Trumpet Logo" width="100">
 
 A lightweight PHP framework for building web applications using the Model-View-Controller (MVC) pattern.
 
@@ -14,8 +14,7 @@ A lightweight PHP framework for building web applications using the Model-View-C
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-</center>
-
+</div>
 
 ## Features
 
