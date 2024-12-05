@@ -40,6 +40,3 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /var/www/html
-
-# Change current user to www-data
-USER www-data

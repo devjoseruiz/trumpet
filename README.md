@@ -35,19 +35,26 @@ A lightweight PHP framework for building web applications using the Model-View-C
 
 > At the moment, the framework is under early development and is not yet ready for production use.
 
-Clone the repository: `git clone https://github.com/devjoseruiz/trumpet-mvc-framework.git`.
+### Previus steps
+
+1. Clone the repository: `git clone https://github.com/devjoseruiz/trumpet-mvc-framework.git`.
+2. Create your own `.env` file based on the `.env.example` file: `cp .env.example .env`.
+3. Customize the `.env` file to fit your needs.
 
 ### Docker installation (highly recommended)
 
 1. Navigate to the project directory: `cd trumpet-mvc-framework`.
 2. Install the dependencies: `docker-compose exec php composer install`.
-3. Start the application: `docker-compose up -d`. You can access the application at `http://localhost:8080`.
+3. Start the application: `docker-compose up -d`.
+4. Run the migrations: `docker-compose exec php php migrations.php`.
+5. You can access the application at `http://localhost:8080`.
 
 ### Local installation
 
 1. Navigate to the source directory: `cd trumpet-mvc-framework/src`.
 2. Install the dependencies: `composer install`.
-3. Run the application: `php -S localhost:8080 -t public/`.
+3. Run the migrations: `php migrations.php`.
+4. Run the application: `php -S localhost:8080 -t public/`.
 
 ## Contributing
 
