@@ -80,6 +80,11 @@ class Database
         $statement->execute();
     }
 
+    public function prepare($query)
+    {
+        return $this->pdo->prepare($query);
+    }
+
     protected function log($message)
     {
         echo '[' . date('Y-m-d H:i:s') . '] - ' . $message . PHP_EOL;

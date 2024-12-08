@@ -2,9 +2,10 @@
 
 namespace app\controllers;
 
+use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
-use app\models\RegisterModel;
+use app\models\UserModel;
 use app\models\LoginModel;
 
 class AuthController extends Controller
@@ -16,32 +17,42 @@ class AuthController extends Controller
 
         if ($request->isPost()) {
             $loginModel->loadData($request->getBody());
-            $loginModel->validate();
 
-            return $this->render('auth/login', [
-                'model' => $loginModel,
-                'errors' => $loginModel->errors
-            ]);
+            if (!$loginModel->validate()) {
+                return $this->render('auth/login', [
+                    'model' => $loginModel,
+                    'errors' => $loginModel->errors
+                ]);
+            }
+
+            Application::$app->response->redirect('/');
         }
 
-        return $this->render('auth/login');
+        return $this->render('auth/login', [
+            'model' => $loginModel
+        ]);
     }
 
     public function register(Request $request)
     {
         $this->setLayout('basic');
-        $registerModel = new RegisterModel();
+        $userModel = new UserModel();
 
         if ($request->isPost()) {
-            $registerModel->loadData($request->getBody());
-            $registerModel->validate();
+            $userModel->loadData($request->getBody());
 
-            return $this->render('auth/register', [
-                'model' => $registerModel,
-                'errors' => $registerModel->errors
-            ]);
+            if (!$userModel->validate() || !$userModel->save()) {
+                return $this->render('auth/register', [
+                    'model' => $userModel,
+                    'errors' => $userModel->errors
+                ]);
+            }
+
+            Application::$app->response->redirect('/login');
         }
 
-        return $this->render('auth/register');
+        return $this->render('auth/register', [
+            'model' => $userModel
+        ]);
     }
 }

@@ -236,6 +236,23 @@ abstract class Model
                 ) {
                     $this->addError($attribute, $label, $ruleName, $params);
                 }
+
+                if (
+                    $ruleName === self::RULE_UNIQUE
+                ) {
+                    $className = $params['className'];
+                    $tableName = $className::tableName();
+                    $field = $params['field'] = $params['field'] ?? $attribute;
+
+                    $statement = Application::$app->db->prepare("SELECT * FROM $tableName WHERE $field = :field");
+                    $statement->bindValue(':field', $value);
+                    $statement->execute();
+                    $record = $statement->fetchObject();
+
+                    if ($record) {
+                        $this->addError($attribute, $label, $ruleName, $params);
+                    }
+                }
             }
         }
 
