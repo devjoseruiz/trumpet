@@ -7,15 +7,16 @@ use Exception;
 class Application
 {
     public static string $ROOT_DIR;
+    public string $layout = 'main';
     public static Application $app;
     public string $userClass;
     public Request $request;
     public Response $response;
     public Router $router;
-    public Controller $controller;
+    public ?Controller $controller = null;
     public Session $session;
     public Database $db;
-    public ?DbModel $user;
+    public ?BaseUserModel $user;
 
     public function __construct(string $rootPath, array $config)
     {
@@ -50,7 +51,18 @@ class Application
 
     public function run()
     {
-        echo $this->router->resolve();
+        try {
+            echo $this->router->resolve();
+        } catch (Exception $e) {
+            $http_code = 500;
+
+            if ($e->getCode() >= 400 && $e->getCode() < 600) {
+                $http_code = $e->getCode();
+            }
+
+            $this->response->setStatusCode($http_code);
+            echo $this->router->renderOnlyView('errors/error_exception', ['exception' => $e]);
+        }
     }
 
     public static function isGuest()

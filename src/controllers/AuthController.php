@@ -8,9 +8,15 @@ use app\core\Request;
 use app\core\Response;
 use app\models\UserModel;
 use app\models\LoginModel;
+use app\core\middlewares\AuthMiddleware;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->registerMiddleware(new AuthMiddleware(['logout']));
+    }
+
     public function login(Request $request, Response $response)
     {
         $this->setLayout('basic');
