@@ -1,3 +1,5 @@
+<?php use app\core\Application; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,12 +28,21 @@
                         Fork</a>
                 </li>
                 <li class="nav-item nav-separator"></li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">🔐 Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">✅ Register</a>
-                </li>
+                <?php if (Application::isGuest()): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">🔐 Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">✅ Register</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link">👤 <?= Application::$app->user->getDisplayName() ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">🚪 Logout</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
@@ -39,7 +50,6 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <?php use app\core\Application; ?>
             <?php if (Application::$app->session->getFlashData('success')): ?>
                 <div class="success-message">
                     <?= Application::$app->session->getFlashData('success'); ?>

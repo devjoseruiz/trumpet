@@ -141,6 +141,8 @@ body {
     padding: 0.8rem;
     border-radius: 4px;
     margin-bottom: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .error-message {
@@ -150,6 +152,8 @@ body {
     padding: 0.8rem;
     border-radius: 4px;
     margin-bottom: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .form {

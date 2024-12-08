@@ -5,12 +5,13 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
+use app\core\Response;
 use app\models\UserModel;
 use app\models\LoginModel;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(Request $request, Response $response)
     {
         $this->setLayout('basic');
         $loginModel = new LoginModel();
@@ -25,7 +26,11 @@ class AuthController extends Controller
                 ]);
             }
 
-            Application::$app->response->redirect('/');
+            if (!$loginModel->login()) {
+                $response->redirect('/login');
+            }
+
+            $response->redirect('/');
         }
 
         return $this->render('auth/login', [
@@ -33,7 +38,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function register(Request $request)
+    public function register(Request $request, Response $response)
     {
         $this->setLayout('basic');
         $userModel = new UserModel();
@@ -52,11 +57,17 @@ class AuthController extends Controller
                 'success',
                 'You have been registered! You can now log in.'
             );
-            Application::$app->response->redirect('/login');
+            $response->redirect('/login');
         }
 
         return $this->render('auth/register', [
             'model' => $userModel
         ]);
+    }
+
+    public function logout(Request $request, Response $response)
+    {
+        Application::$app->logout();
+        $response->redirect('/');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\core\Application;
 use app\core\Model;
 
 class LoginModel extends Model
@@ -9,9 +10,21 @@ class LoginModel extends Model
     public string $email = '';
     public string $password = '';
 
+    public static function tableName(): string
+    {
+        return 'users';
+    }
+
     public function login()
     {
-        return 'Success';
+        $user = UserModel::findOne(['email' => $this->email]);
+
+        if (!$user || !password_verify($this->password, $user->password)) {
+            Application::$app->session->setFlashData('error', 'User or password is incorrect');
+            return false;
+        }
+
+        return Application::$app->authenticate($user);
     }
 
     public function validations(): array

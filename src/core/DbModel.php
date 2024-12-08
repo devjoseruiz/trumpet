@@ -6,14 +6,14 @@ use Exception;
 
 abstract class DbModel extends Model
 {
-    abstract public function tableName(): string;
-
+    abstract public static function tableName(): string;
     abstract public function attributes(): array;
+    abstract public static function primaryKey(): string;
 
     public function save(): bool
     {
         try {
-            $tableName = $this->tableName();
+            $tableName = static::tableName();
             $attributes = $this->attributes();
             $params = array_map(fn($attr) => ":{$attr}", $attributes);
 
@@ -29,6 +29,25 @@ abstract class DbModel extends Model
             return false;
         }
     }
+
+    public static function findOne($where)
+    {
+        $tableName = static::tableName();
+        $attributes = array_keys($where);
+        $params = implode(' AND ', array_map(
+            fn($attr) => "$attr = :$attr",
+            $attributes
+        ));
+        $statement = static::prepare("SELECT * FROM $tableName WHERE $params");
+
+        foreach ($where as $key => $item) {
+            $statement->bindValue(":$key", $item);
+        }
+
+        $statement->execute();
+        return $statement->fetchObject(static::class);
+    }
+
 
     public static function prepare($query)
     {

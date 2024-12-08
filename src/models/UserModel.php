@@ -2,20 +2,22 @@
 
 namespace app\models;
 
-use app\core\DbModel;
+use app\core\BaseUserModel;
 
-class UserModel extends DbModel
+class UserModel extends BaseUserModel
 {
     public const STATUS_INACTIVE = 0;
     public const STATUS_ACTIVE = 1;
     public const STATUS_DELETED = 2;
 
+    public ?int $id = null;
     public string $email = '';
     public string $password = '';
     public string $passwordConfirm = '';
     public int $status = self::STATUS_ACTIVE;
+    public ?string $created_at = null;
 
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'users';
     }
@@ -23,6 +25,16 @@ class UserModel extends DbModel
     public function attributes(): array
     {
         return ['email', 'password', 'status'];
+    }
+
+    public static function primaryKey(): string
+    {
+        return 'id';
+    }
+
+    public function getDisplayName(): string
+    {
+        return explode('@', $this->email)[0];
     }
 
     public function save(): bool
