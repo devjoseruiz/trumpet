@@ -48,6 +48,10 @@ class AuthController extends Controller
                 ]);
             }
 
+            Application::$app->session->setFlashData(
+                'success',
+                'You have been registered! You can now log in.'
+            );
             Application::$app->response->redirect('/login');
         }
 

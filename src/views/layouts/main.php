@@ -39,6 +39,19 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
+            <?php use app\core\Application; ?>
+            <?php if (Application::$app->session->getFlashData('success')): ?>
+                <div class="success-message">
+                    <?= Application::$app->session->getFlashData('success'); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (Application::$app->session->getFlashData('error')): ?>
+                <div class="error-message">
+                    <?= Application::$app->session->getFlashData('error'); ?>
+                </div>
+            <?php endif; ?>
+
             {{content}}
         </div>
     </main>
