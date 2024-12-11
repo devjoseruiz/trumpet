@@ -29,9 +29,9 @@ class View
      * @param array $data Additional data to pass to the view
      * @return string The fully rendered view with layout
      */
-    public function renderView($view, ?Model $model = null, array $data = [])
+    public function renderView($view, array $data = [], ?Model $model = null)
     {
-        $viewContent = $this->renderOnlyView($view, $model, $data);
+        $viewContent = $this->renderOnlyView($view, $data, $model);
         $layoutContent = $this->layoutContent();
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
@@ -65,11 +65,11 @@ class View
      * variables that can be used within the view.
      * 
      * @param string $view The name of the view file to render (without .php extension)
-     * @param Model|null $model Optional model instance containing data for the view
      * @param array $data Additional data to pass to the view
+     * @param Model|null $model Optional model instance containing data for the view
      * @return string The rendered view content
      */
-    public function renderOnlyView($view, ?Model $model = null, array $data = [])
+    public function renderOnlyView($view, array $data = [], ?Model $model = null)
     {
         if ($model !== null) {
             foreach (get_object_vars($model) as $key => $value) {

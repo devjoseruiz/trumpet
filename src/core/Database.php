@@ -4,6 +4,7 @@ namespace app\core;
 
 use Exception;
 use PDO;
+use PDOStatement;
 
 /**
  * Database Class
@@ -127,7 +128,7 @@ class Database
      * Prepares a database query
      * 
      * @param string $query The SQL query to prepare
-     * @return PDOStatement The prepared PDO statement
+     * @return bool|PDOStatement The prepared PDO statement
      */
     public function prepare($query)
     {

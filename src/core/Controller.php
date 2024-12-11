@@ -30,13 +30,13 @@ class Controller
      * Renders a view with optional model and data
      * 
      * @param string $view The view file to render
-     * @param Model|null $model Optional model instance to pass to the view
      * @param array $data Additional data to pass to the view
+     * @param Model|null $model Optional model instance to pass to the view
      * @return string The rendered view content
      */
-    public function render(string $view, ?Model $model = null, array $data = [])
+    public function render(string $view, array $data = [], ?Model $model = null)
     {
-        return Application::$app->view->renderView($view, $model, $data);
+        return Application::$app->view->renderView($view, $data, $model);
     }
 
     /**
