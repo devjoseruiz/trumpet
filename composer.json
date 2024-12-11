@@ -1,10 +1,10 @@
 {
-    "name": "devjoseruiz/trumpet-mvc-framework",
+    "name": "devjoseruiz/trumpet-mvc-framework-core",
     "description": "MVC PHP framework",
     "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
-            "app\\": "./"
+            "devjoseruiz\\trumpet\\": "./"
         }
     },
     "require": {

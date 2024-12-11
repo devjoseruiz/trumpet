@@ -1,0 +1,13 @@
+/docker export-ignore
+/docker-compose.yml export-ignore
+/.github export-ignore
+/.vscode export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/phpunit.xml export-ignore
+/tests export-ignore
+/docs export-ignore
+/docs-resources export-ignore
+/*.md export-ignore
+/Doxyfile export-ignore
+/.env export-ignore
