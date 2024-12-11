@@ -1,0 +1,154 @@
+/**
+@mainpage Trumpet MVC Framework Documentation
+
+@section intro Introduction
+Trumpet is a lightweight, modern PHP MVC framework designed for building web applications with elegance and simplicity. 
+It provides a robust foundation for creating scalable and maintainable web applications while maintaining a clean and intuitive architecture.
+
+@section features Key Features
+
+@subsection mvc MVC Architecture
+- **Model**: Handle data logic and database interactions
+- **View**: Manage presentation and templating
+- **Controller**: Process user input and application logic
+
+@subsection core_components Core Components
+- **Router**: Advanced routing system with support for dynamic routes and middleware
+- **Database**: PDO-based database abstraction layer with migration support
+- **Authentication**: Built-in user authentication and authorization system
+- **Session**: Secure session management
+- **Form Builder**: Intuitive form creation and validation
+- **Middleware**: Request/Response middleware pipeline
+
+@section quick_start Quick Start Guide
+
+@subsection installation 1. Installation
+@code{.bash}
+composer create-project trumpet/mvc-framework my-project
+cd my-project
+@endcode
+
+@subsection configuration 2. Configuration
+Create a `.env` file in your project root:
+@code{.env}
+DB_DSN=mysql:host=localhost;port=3306;dbname=your_database
+DB_USER=your_username
+DB_PASSWORD=your_password
+@endcode
+
+@subsection basic_usage 3. Basic Usage
+
+Create a controller:
+@code{.php}
+namespace app\controllers;
+
+use trumpet\core\Controller;
+
+class SiteController extends Controller
+{
+    public function home()
+    {
+        return $this->render('home', data: [
+            'message' => 'Welcome to Trumpet Framework'
+        ]);
+    }
+}
+@endcode
+
+Create a view (views/home.php):
+@code{.php}
+<h1><?php echo $message; ?></h1>
+@endcode
+
+Define a route:
+@code{.php}
+$app->router->get('/', [SiteController::class, 'home']);
+@endcode
+
+@section examples Code Examples
+
+@subsection model_example Model Example
+@code{.php}
+namespace app\models;
+
+use trumpet\core\DbModel;
+
+class User extends DbModel
+{
+    public string $email = '';
+    public string $password = '';
+
+    public static function tableName(): string
+    {
+        return 'users';
+    }
+
+    public function rules(): array
+    {
+        return [
+            'email' => [self::RULE_REQUIRED, self::RULE_EMAIL],
+            'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]]
+        ];
+    }
+}
+@endcode
+
+@subsection form_example Form Example
+@code{.php}
+use trumpet\utils\form\Form;
+
+$form = new Form();
+?>
+
+<?php $form->begin('post', '/register'); ?>
+    <?php echo $form->field($model, 'email')->emailField(); ?>
+    <?php echo $form->field($model, 'password')->passwordField(); ?>
+    <button type="submit">Register</button>
+<?php $form->end(); ?>
+@endcode
+
+@section architecture Framework Architecture
+
+The framework follows a modular architecture with the following directory structure:
+
+@code{.txt}
+trumpet-mvc-framework/
+├── src/
+│   ├── controllers/    # Controller classes
+│   ├── core/           # Core framework components
+│   ├── migrations/     # Database migrations
+│   ├── models/         # Model classes
+│   ├── public/         # Public entry point
+│   └── views/          # View templates
+│
+├── vendor/             # Third-party dependencies
+└── composer.json       # Dependency management
+@endcode
+
+@section best_practices Best Practices
+
+1. **Routing**
+   - Keep routes organized in logical groups
+   - Use middleware for route protection
+   - Implement RESTful routing conventions
+
+2. **Models**
+   - Validate data using model rules
+   - Keep business logic in models
+   - Use migrations for database changes
+
+3. **Controllers**
+   - Keep controllers thin
+   - Use middleware for cross-cutting concerns
+   - Return responses consistently
+
+4. **Views**
+   - Use layouts for consistent page structure
+   - Escape output to prevent XSS
+   - Keep business logic out of views
+
+@section contributing Contributing
+
+We welcome contributions! Please read our [Contribution Guidelines](CONTRIBUTING.md) for details on how to contribute to the project.
+
+*/

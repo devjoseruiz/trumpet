@@ -1,0 +1,144 @@
+:root {
+    /* Primary theme color */
+    --primary-color: #1779c4;
+    --primary-dark-color: #00559f;
+    --primary-light-color: #7ab3e6;
+    
+    /* Page background and text colors */
+    --page-background-color: #ffffff;
+    --page-foreground-color: #2f4153;
+    
+    /* Navigation and sidebar colors */
+    --side-nav-background: #f8f9fb;
+    --side-nav-foreground: var(--page-foreground-color);
+    --header-background: var(--primary-color);
+    --header-foreground: #ffffff;
+    
+    /* Link colors */
+    --link-color: var(--primary-color);
+    --link-hover-color: var(--primary-dark-color);
+    
+    /* Code block colors */
+    --code-background: #f6f8fa;
+    --code-foreground: #2f4153;
+    
+    /* Font settings */
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Base styles */
+html {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Header styling */
+#titlearea {
+    background: var(--header-background);
+    color: var(--header-foreground);
+    padding: 1rem;
+    border: none;
+}
+
+#projectname {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#projectbrief {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* Navigation styling */
+#nav-tree {
+    background: var(--side-nav-background);
+    font-size: 0.9rem;
+}
+
+#nav-tree .item {
+    padding: 0.3rem 0;
+}
+
+/* Content area styling */
+.contents {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Table styling */
+table.memberdecls {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.memberdecls td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+/* Code block styling */
+div.fragment {
+    padding: 1rem;
+    margin: 1rem 0;
+    background: var(--code-background);
+    border-radius: 6px;
+    border: 1px solid #e1e4e8;
+}
+
+/* Link styling */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Documentation section styling */
+.memtitle {
+    background: var(--primary-light-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px 6px 0 0;
+    border: none;
+}
+
+.memitem {
+    border: 1px solid #e1e4e8;
+    border-radius: 0 0 6px 6px;
+    margin-bottom: 1rem;
+}
+
+.memdoc {
+    padding: 1rem;
+}
+
+/* Search box styling */
+#MSearchBox {
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .contents {
+        padding: 1rem;
+    }
+    
+    #projectname {
+        font-size: 1.5rem;
+    }
+    
+    #projectbrief {
+        font-size: 1rem;
+    }
+}
