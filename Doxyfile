@@ -1,7 +1,6 @@
 PROJECT_NAME           = "Trumpet MVC Framework"
 PROJECT_NUMBER         = "1.0.0"
 PROJECT_BRIEF         = "A lightweight PHP framework for building web applications using the MVC pattern"
-PROJECT_LOGO          = docs-resources/logo.svg
 OUTPUT_DIRECTORY      = docs
 CREATE_SUBDIRS        = NO
 ALLOW_UNICODE_NAMES   = YES
