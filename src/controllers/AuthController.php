@@ -19,6 +19,7 @@ class AuthController extends Controller
 
     public function login(Request $request, Response $response)
     {
+        $this->setTitle('Login');
         $this->setLayout('basic');
         $loginModel = new LoginModel();
 
@@ -26,10 +27,10 @@ class AuthController extends Controller
             $loginModel->loadData($request->getBody());
 
             if (!$loginModel->validate()) {
-                return $this->render('auth/login', [
-                    'model' => $loginModel,
-                    'errors' => $loginModel->errors
-                ]);
+                return $this->render(
+                    'auth/login',
+                    model: $loginModel
+                );
             }
 
             if (!$loginModel->login()) {
@@ -39,13 +40,12 @@ class AuthController extends Controller
             $response->redirect('/');
         }
 
-        return $this->render('auth/login', [
-            'model' => $loginModel
-        ]);
+        return $this->render('auth/login', model: $loginModel);
     }
 
     public function register(Request $request, Response $response)
     {
+        $this->setTitle('Register');
         $this->setLayout('basic');
         $userModel = new UserModel();
 
@@ -53,10 +53,10 @@ class AuthController extends Controller
             $userModel->loadData($request->getBody());
 
             if (!$userModel->validate() || !$userModel->save()) {
-                return $this->render('auth/register', [
-                    'model' => $userModel,
-                    'errors' => $userModel->errors
-                ]);
+                return $this->render(
+                    'auth/register',
+                    model: $userModel
+                );
             }
 
             Application::$app->session->setFlashData(
@@ -66,9 +66,7 @@ class AuthController extends Controller
             $response->redirect('/login');
         }
 
-        return $this->render('auth/register', [
-            'model' => $userModel
-        ]);
+        return $this->render('auth/register', model: $userModel);
     }
 
     public function logout(Request $request, Response $response)

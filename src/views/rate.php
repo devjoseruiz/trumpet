@@ -35,10 +35,10 @@
         </form>
 
     <?php else: ?>
-        <h2 class="rating-title">You rated Trumpet Framework with <?= $data['model']->rating ?>/5 ⭐!</h2>
+        <h2 class="rating-title">You rated Trumpet Framework with <?= $data['rating'] ?>/5 ⭐!</h2>
 
         <?php
-        $tweetText = "I've rated 🎺 Trumpet Framework with {$data['model']->rating}/5 ⭐! {$data['model']->liked_features}";
+        $tweetText = "I've rated 🎺 Trumpet Framework with {$data['rating']}/5 ⭐! {$data['liked_features']}";
         $encodedText = urlencode($tweetText);
         $tweetUrl = "https://twitter.com/intent/tweet?text={$encodedText}&url=https://github.com/devjoseruiz/trumpet-mvc-framework";
         ?>
@@ -54,7 +54,7 @@
 
         <div class="quote-container">
             <h3>What could be improved</h3>
-            <p class="quote-text"><?= $data['model']->improvements ?></p>
+            <p class="quote-text"><?= $data['improvements'] ?></p>
         </div>
 
         <a href="https://github.com/devjoseruiz/trumpet-mvc-framework/issues" class="github-issues-button" target="_blank"

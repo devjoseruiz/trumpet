@@ -17,6 +17,7 @@ class Application
     public Session $session;
     public Database $db;
     public ?BaseUserModel $user;
+    public View $view;
 
     public function __construct(string $rootPath, array $config)
     {
@@ -27,6 +28,7 @@ class Application
         $this->response = new Response();
         $this->router = new Router($this->request, $this->response);
         $this->session = new Session();
+        $this->view = new View();
         $this->db = new Database($config['db']);
 
         if (!$this->session->hasUserData('user')) {
@@ -61,7 +63,7 @@ class Application
             }
 
             $this->response->setStatusCode($http_code);
-            echo $this->router->renderOnlyView('errors/error_exception', ['exception' => $e]);
+            echo $this->view->renderOnlyView('errors/error_exception', data: ['exception' => $e]);
         }
     }
 

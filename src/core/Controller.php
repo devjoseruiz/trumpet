@@ -29,8 +29,13 @@ class Controller
         $this->layout = $layout;
     }
 
-    public function render(string $view, array $data = [])
+    public function setTitle(string $title)
     {
-        return Application::$app->router->renderView($view, $data);
+        Application::$app->view->title = $title;
+    }
+
+    public function render(string $view, ?Model $model = null, array $data = [])
+    {
+        return Application::$app->view->renderView($view, $model, $data);
     }
 }
