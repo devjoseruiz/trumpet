@@ -2,8 +2,22 @@
 
 namespace app\core\utils\form;
 
+/**
+ * DefaultTheme Class
+ * 
+ * Provides the default implementation of the Theme interface.
+ * Implements a Bootstrap-like styling for form elements with support for
+ * validation states and various input types.
+ * 
+ * @package app\core\utils\form
+ * @author Trumpet MVC Framework
+ * @version 1.0
+ */
 class DefaultTheme implements Theme
 {
+    /**
+     * @var array Default CSS classes for form elements
+     */
     protected array $classes = [
         'form' => 'form',
         'field' => 'form-group',
@@ -18,16 +32,25 @@ class DefaultTheme implements Theme
         'invalid' => 'is-invalid'
     ];
 
+    /**
+     * {@inheritdoc}
+     */
     public function getClasses(): array
     {
         return $this->classes;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setClasses(array $classes): void
     {
         $this->classes = array_merge($this->classes, $classes);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function render(string $element, array $attributes): string
     {
         return match ($element) {
@@ -40,6 +63,12 @@ class DefaultTheme implements Theme
         };
     }
 
+    /**
+     * Renders a form opening tag
+     * 
+     * @param array $attributes Form attributes including method and action
+     * @return string The rendered form tag
+     */
     protected function renderForm(array $attributes): string
     {
         return sprintf(
@@ -50,6 +79,15 @@ class DefaultTheme implements Theme
         );
     }
 
+    /**
+     * Renders a complete form field
+     * 
+     * Combines label, input, and error message into a field container.
+     * Handles special cases for checkbox and radio inputs.
+     * 
+     * @param array $attributes Field attributes
+     * @return string The rendered field HTML
+     */
     protected function renderField(array $attributes): string
     {
         $isCheckOrRadio = in_array($attributes['type'], ['checkbox', 'radio']);
@@ -64,6 +102,12 @@ class DefaultTheme implements Theme
         );
     }
 
+    /**
+     * Renders a form label
+     * 
+     * @param array $attributes Label attributes including label text
+     * @return string The rendered label HTML
+     */
     protected function renderLabel(array $attributes): string
     {
         $isCheckOrRadio = in_array($attributes['type'], ['checkbox', 'radio']);
@@ -76,6 +120,16 @@ class DefaultTheme implements Theme
         );
     }
 
+    /**
+     * Renders a form input element
+     * 
+     * Supports various input types including text, textarea, select,
+     * checkbox, and radio buttons. Handles validation states and
+     * additional HTML attributes.
+     * 
+     * @param array $attributes Input attributes
+     * @return string The rendered input HTML
+     */
     protected function renderInput(array $attributes): string
     {
         // Get base class for the input type
@@ -143,6 +197,13 @@ class DefaultTheme implements Theme
         };
     }
 
+    /**
+     * Renders a select dropdown
+     * 
+     * @param string $baseAttrs Base HTML attributes for the select element
+     * @param array $attributes Select attributes including options
+     * @return string The rendered select HTML
+     */
     protected function renderSelect(string $baseAttrs, array $attributes): string
     {
         if (!isset($attributes['options']) || !is_array($attributes['options'])) {
@@ -167,6 +228,12 @@ class DefaultTheme implements Theme
         );
     }
 
+    /**
+     * Renders an error message
+     * 
+     * @param array $attributes Error attributes including the error message
+     * @return string The rendered error HTML
+     */
     protected function renderError(array $attributes): string
     {
         if (!$attributes['hasError']) {

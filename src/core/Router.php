@@ -2,28 +2,72 @@
 
 namespace app\core;
 
+/**
+ * Router Class
+ * 
+ * Handles URL routing in the Trumpet MVC Framework.
+ * Maps URLs to their corresponding controller actions and handles request resolution.
+ * 
+ * @package app\core
+ * @author Trumpet MVC Framework
+ * @version 1.0
+ */
 class Router
 {
+    /** @var Request The request instance */
     public Request $request;
+    
+    /** @var Response The response instance */
     public Response $response;
+    
+    /** @var array Array of registered routes */
     protected array $routes = [];
 
+    /**
+     * Router constructor
+     * 
+     * @param Request $request The request instance
+     * @param Response $response The response instance
+     */
     public function __construct(Request $request, Response $response)
     {
         $this->request = $request;
         $this->response = $response;
     }
 
+    /**
+     * Registers a GET route
+     * 
+     * @param string $path The URL path to match
+     * @param mixed $callback The callback to execute when route is matched
+     * @return void
+     */
     public function get(string $path, $callback)
     {
         $this->routes['get'][$path] = $callback;
     }
 
+    /**
+     * Registers a POST route
+     * 
+     * @param string $path The URL path to match
+     * @param mixed $callback The callback to execute when route is matched
+     * @return void
+     */
     public function post(string $path, $callback)
     {
         $this->routes['post'][$path] = $callback;
     }
 
+    /**
+     * Resolves the current request
+     * 
+     * Matches the current URL path and HTTP method to registered routes
+     * and executes the corresponding callback.
+     * 
+     * @return mixed The result of the callback execution
+     * @throws \Exception If route is not found (404)
+     */
     public function resolve()
     {
         $path = $this->request->getPath();

@@ -2,31 +2,70 @@
 
 namespace app\core;
 
+/**
+ * Base Model Class
+ * 
+ * This abstract class serves as the foundation for all models in the Trumpet MVC Framework.
+ * It provides core functionality for data validation, error handling, and data loading.
+ * 
+ * @package app\core
+ * @author Trumpet MVC Framework
+ * @version 1.0
+ */
 abstract class Model
 {
+    /** @var array Validation rule for required fields */
     public const RULE_REQUIRED = 'required';
+    /** @var array Validation rule for numeric values */
     public const RULE_NUMERIC = 'numeric';
+    /** @var array Validation rule for integer values */
     public const RULE_INTEGER = 'integer';
+    /** @var array Validation rule for decimal values */
     public const RULE_DECIMAL = 'decimal';
+    /** @var array Validation rule for alphabetic characters */
     public const RULE_ALPHA = 'alpha';
+    /** @var array Validation rule for alphanumeric characters */
     public const RULE_ALPHA_NUMERIC = 'alpha_numeric';
+    /** @var array Validation rule for alphanumeric characters with spaces */
     public const RULE_ALPHA_NUMERIC_SPACE = 'alpha_numeric_space';
+    /** @var array Validation rule for alphanumeric characters with dashes */
     public const RULE_ALPHA_DASH = 'alpha_dash';
+    /** @var array Validation rule for email format */
     public const RULE_VALID_EMAIL = 'valid_email';
+    /** @var array Validation rule for URL format */
     public const RULE_VALID_URL = 'valid_url';
+    /** @var array Validation rule for IP address format */
     public const RULE_VALID_IP = 'valid_ip';
+    /** @var array Validation rule for base64 encoded strings */
     public const RULE_VALID_BASE64 = 'valid_base64';
+    /** @var array Validation rule for less than comparison */
     public const RULE_LESS_THAN = 'less_than';
+    /** @var array Validation rule for less than or equal comparison */
     public const RULE_LESS_THAN_EQUAL_TO = 'less_than_equal_to';
+    /** @var array Validation rule for greater than comparison */
     public const RULE_GREATER_THAN = 'greater_than';
+    /** @var array Validation rule for greater than or equal comparison */
     public const RULE_GREATER_THAN_EQUAL_TO = 'greater_than_equal_to';
+    /** @var array Validation rule for minimum length */
     public const RULE_MIN_LENGTH = 'min_length';
+    /** @var array Validation rule for maximum length */
     public const RULE_MAX_LENGTH = 'max_length';
+    /** @var array Validation rule for exact length */
     public const RULE_EXACT_LENGTH = 'exact_length';
+    /** @var array Validation rule for matching values */
     public const RULE_MATCHES = 'matches';
+    /** @var array Validation rule for differing values */
     public const RULE_DIFFERS = 'differs';
+    /** @var array Validation rule for unique values */
     public const RULE_UNIQUE = 'unique';
 
+    /** @var array Stores validation errors */
+    public array $errors = [];
+    /**
+     * Stores error messages
+     * 
+     * @var array
+     */
     protected array $errorMessages = [
         self::RULE_REQUIRED => 'This field is required',
         self::RULE_NUMERIC => 'This field must be numeric',
@@ -52,8 +91,14 @@ abstract class Model
         self::RULE_UNIQUE => 'Record with this {field} already exists',
     ];
 
-    public array $errors = [];
-
+    /**
+     * Loads data into the model
+     * 
+     * Takes an associative array and assigns values to matching model properties
+     * 
+     * @param array $data Associative array of data to load
+     * @return void
+     */
     public function loadData($data)
     {
         foreach ($data as $key => $value) {
@@ -63,6 +108,14 @@ abstract class Model
         }
     }
 
+    /**
+     * Sets a validation rule for an attribute
+     * 
+     * @param string $attribute The attribute name
+     * @param string $label The attribute label
+     * @param array $rules The validation rules
+     * @return array The validation rule
+     */
     public function setRule(string $attribute, string $label, array $rules)
     {
         return [
@@ -72,13 +125,35 @@ abstract class Model
         ];
     }
 
+    /**
+     * Sets a custom error message for an attribute
+     * 
+     * @param string $attribute The attribute name
+     * @param string $message The error message
+     * @return void
+     */
     public function setMessage(string $attribute, string $message)
     {
         $this->errorMessages[$attribute] = $message;
     }
 
+    /**
+     * Defines validation rules for the model
+     * 
+     * Each model must implement this method to define its validation rules
+     * 
+     * @return array Array of validation rules
+     */
     abstract public function validations(): array;
 
+    /**
+     * Validates the model data
+     * 
+     * Applies all validation rules defined in validations() method
+     * and stores any validation errors
+     * 
+     * @return bool True if validation passes, false otherwise
+     */
     public function validate()
     {
         foreach ($this->validations() as $validation) {
@@ -259,6 +334,15 @@ abstract class Model
         return empty($this->errors);
     }
 
+    /**
+     * Adds a validation error to the model
+     * 
+     * @param string $attribute The attribute name
+     * @param string $label The attribute label
+     * @param string $rule The validation rule
+     * @param array $params The validation rule parameters
+     * @return void
+     */
     public function addError(string $attribute, string $label, string $rule, array $params = [])
     {
         $message = $this->getErrorMessages()[$rule] ?? 'This field is invalid';
@@ -271,16 +355,33 @@ abstract class Model
         $this->errors[$attribute]['errors'][] = $message;
     }
 
+    /**
+     * Gets all error messages
+     * 
+     * @return array Array of error messages
+     */
     public function getErrorMessages(): array
     {
         return $this->errorMessages;
     }
 
+    /**
+     * Checks if an attribute has any validation errors
+     * 
+     * @param string $attribute The attribute name to check
+     * @return bool True if the attribute has errors, false otherwise
+     */
     public function hasError($attribute)
     {
         return $this->errors[$attribute]['errors'] ?? false;
     }
 
+    /**
+     * Gets the first error message for an attribute
+     * 
+     * @param string $attribute The attribute name
+     * @return string|bool The first error message or false if no errors
+     */
     public function getFirstError($attribute)
     {
         return $this->errors[$attribute]['errors'][0] ?? false;
