@@ -22,8 +22,6 @@ ABBREVIATE_BRIEF     = "The $name class" \
 ALWAYS_DETAILED_SEC   = NO
 INLINE_INHERITED_MEMB = NO
 FULL_PATH_NAMES      = YES
-STRIP_FROM_PATH      = src/
-STRIP_FROM_INC_PATH  = src/
 TAB_SIZE             = 4
 OPTIMIZE_OUTPUT_FOR_C  = NO
 OPTIMIZE_OUTPUT_JAVA   = NO
@@ -47,20 +45,21 @@ TYPEDEF_HIDES_STRUCT  = NO
 LOOKUP_CACHE_SIZE     = 0
 NUM_PROC_THREADS      = 1
 
-# Configuración de entrada
-INPUT                = ./ \
+# Input settings
+INPUT                = . \
                       ./exceptions \
                       ./middlewares \
                       ./utils \
                       ./docs-resources/mainpage.dox
 FILE_PATTERNS        = *.php
 RECURSIVE            = YES
-EXCLUDE              = vendor \
-                      docs \
-                      docker \
-                      .git \
-                      .github \
-                      .vscode
+EXCLUDE              = ./vendor \
+                      ./docs \
+                      ./docker \
+                      ./.git \
+                      ./.github \
+                      ./.vscode \
+                      ./docs-resources
 EXCLUDE_SYMLINKS     = NO
 EXCLUDE_PATTERNS     = */vendor/* \
                       */docs/* \
@@ -68,9 +67,9 @@ EXCLUDE_PATTERNS     = */vendor/* \
                       */tests/* \
                       */.git/* \
                       */.github/* \
-                      */.vscode/*
-
-# Configuración de análisis
+                      */.vscode/* \
+                      */docs-resources/*
+# Analysis settings
 EXTRACT_ALL          = YES
 EXTRACT_PRIVATE      = YES
 EXTRACT_PACKAGE      = YES
@@ -120,7 +119,6 @@ INPUT_ENCODING       = UTF-8
 EXAMPLE_PATH         = 
 EXAMPLE_PATTERNS     = *
 EXAMPLE_RECURSIVE    = NO
-IMAGE_PATH           = 
 INPUT_FILTER         = 
 FILTER_PATTERNS      = 
 FILTER_SOURCE_FILES  = NO
@@ -142,20 +140,27 @@ CLANG_OPTIONS        =
 CLANG_DATABASE_PATH  =
 ALPHABETICAL_INDEX  = YES
 IGNORE_PREFIX       = 
-GENERATE_HTML        = YES
+# HTML settings
+GENERATE_HTML         = YES
+HTML_EXTRA_STYLESHEET = docs-resources/doxygen-awesome.css
+HTML_HEADER          = 
+HTML_FOOTER          = 
+HTML_COLORSTYLE      = LIGHT
+HTML_COLORSTYLE_HUE  = 220
+HTML_COLORSTYLE_SAT  = 100
+HTML_COLORSTYLE_GAMMA = 80
+HTML_TIMESTAMP       = YES
+HTML_DYNAMIC_MENUS   = YES
+HTML_DYNAMIC_SECTIONS = NO
+GENERATE_TREEVIEW    = YES
+TREEVIEW_WIDTH       = 335
+SEARCHENGINE         = YES
 HTML_OUTPUT         = html
 HTML_FILE_EXTENSION = .html
 HTML_HEADER         = 
 HTML_FOOTER         = 
 HTML_STYLESHEET     = 
-HTML_EXTRA_STYLESHEET = docs-resources/doxygen-awesome.css
-HTML_COLORSTYLE      = LIGHT
-HTML_COLORSTYLE_HUE = 220
-HTML_COLORSTYLE_SAT = 100
-HTML_COLORSTYLE_GAMMA = 80
-HTML_TIMESTAMP      = NO
-HTML_DYNAMIC_MENUS  = YES
-HTML_DYNAMIC_SECTIONS = NO
+HTML_COPY_IMAGES      = YES
 HTML_INDEX_NUM_ENTRIES = 100
 GENERATE_DOCSET     = NO
 DOCSET_FEEDNAME     = "Doxygen generated docs"
