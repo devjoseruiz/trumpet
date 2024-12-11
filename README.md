@@ -33,7 +33,27 @@ A lightweight PHP framework for building web applications using the Model-View-C
 
 > At the moment, the framework is under early development and is not yet ready for production use.
 
-### Previus steps
+For using the framework as part of a project, you can install it via composer:
+
+```bash
+composer require devjoseruiz/trumpet
+```
+
+Or you can clone our [template project](https://github.com/devjoseruiz/trumpet-skeleton) and customize it to your needs:
+
+```bash
+git clone https://github.com/devjoseruiz/trumpet-skeleton.git
+```
+
+## Documentation
+
+For a detailed guide on how to use Trumpet, refer to our [documentation](https://devjoseruiz.github.io/trumpet).
+
+## Contributing
+
+We welcome contributions from the community. Please follow the [Contributing Guidelines](https://github.com/devjoseruiz/trumpet/blob/master/CONTRIBUTING.md) to contribute to the project.
+
+### Environment Setup
 
 1. Clone the repository: `git clone https://github.com/devjoseruiz/trumpet.git`.
 
@@ -47,14 +67,6 @@ A lightweight PHP framework for building web applications using the Model-View-C
 
 1. Navigate to the source directory: `cd trumpet`.
 2. Install the dependencies: `composer install`.
-
-## Documentation
-
-For a detailed guide on how to use Trumpet, refer to our [documentation](https://devjoseruiz.github.io/trumpet).
-
-## Contributing
-
-We welcome contributions from the community. Please follow the [Contributing Guidelines](https://github.com/devjoseruiz/trumpet/blob/master/CONTRIBUTING.md) to contribute to the project.
 
 ## License
 

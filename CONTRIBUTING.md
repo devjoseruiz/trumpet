@@ -12,14 +12,14 @@ First off, thank you for taking the time to contribute! 🎉 Your support helps 
 ## How Can I Contribute?
 
 ### Reporting Bugs
-If you find a bug, please create a new [issue](https://github.com/devjoseruiz/trumpet-mvc-framework/issues) and include:
+If you find a bug, please create a new [issue](https://github.com/devjoseruiz/trumpet/issues) and include:
 1. A clear, descriptive title.
 2. Steps to reproduce the issue.
 3. Expected and actual behavior.
 4. Screenshots or logs, if applicable.
 
 ### Suggesting Features
-We’re open to your ideas! Submit a new [issue](https://github.com/devjoseruiz/trumpet-mvc-framework/issues) with:
+We’re open to your ideas! Submit a new [issue](https://github.com/devjoseruiz/trumpet/issues) with:
 - A description of the feature.
 - The problem it solves.
 - Any relevant examples or context.

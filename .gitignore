@@ -475,3 +475,6 @@ composer.lock
 
 ##### DotEnv
 .env
+
+##### Doxygen
+/docs

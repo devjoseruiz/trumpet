@@ -24,25 +24,16 @@ It provides a robust foundation for creating scalable and maintainable web appli
 
 @subsection installation 1. Installation
 @code{.bash}
-composer create-project trumpet/mvc-framework my-project
-cd my-project
+composer require devjoseruiz/trumpet
 @endcode
 
-@subsection configuration 2. Configuration
-Create a `.env` file in your project root:
-@code{.env}
-DB_DSN=mysql:host=localhost;port=3306;dbname=your_database
-DB_USER=your_username
-DB_PASSWORD=your_password
-@endcode
-
-@subsection basic_usage 3. Basic Usage
+@subsection basic_usage 2. Basic Usage
 
 Create a controller:
 @code{.php}
 namespace app\controllers;
 
-use trumpet\core\Controller;
+use devjoseruiz\trumpet\Controller;
 
 class SiteController extends Controller
 {
@@ -71,7 +62,7 @@ $app->router->get('/', [SiteController::class, 'home']);
 @code{.php}
 namespace app\models;
 
-use trumpet\core\DbModel;
+use devjoseruiz\trumpet\DbModel;
 
 class User extends DbModel
 {
@@ -95,7 +86,7 @@ class User extends DbModel
 
 @subsection form_example Form Example
 @code{.php}
-use trumpet\utils\form\Form;
+use devjoseruiz\trumpet\utils\form\Form;
 
 $form = new Form();
 ?>
@@ -112,17 +103,17 @@ $form = new Form();
 The framework follows a modular architecture with the following directory structure:
 
 @code{.txt}
-trumpet-mvc-framework/
+trumpet/
 ├── src/
 │   ├── controllers/    # Controller classes
-│   ├── core/           # Core framework components
 │   ├── migrations/     # Database migrations
 │   ├── models/         # Model classes
 │   ├── public/         # Public entry point
+│   ├── vendor/         # Project dependencies
 │   └── views/          # View templates
-│
-├── vendor/             # Third-party dependencies
-└── composer.json       # Dependency management
+├── .env                # Environment variables
+├── composer.json       # Dependency management
+└── migrations.php      # Database migration script
 @endcode
 
 @section best_practices Best Practices
@@ -149,6 +140,6 @@ trumpet-mvc-framework/
 
 @section contributing Contributing
 
-We welcome contributions! Please read our [Contribution Guidelines](CONTRIBUTING.md) for details on how to contribute to the project.
+We welcome contributions! Please read our [Contribution Guidelines](https://github.com/devjoseruiz/trumpet/blob/master/CONTRIBUTING.md) for details on how to contribute to the project.
 
 */
