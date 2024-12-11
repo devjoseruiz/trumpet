@@ -2,13 +2,11 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/devjoseruiz/trumpet-mvc-framework/refs/heads/master/src/public/assets/img/favicon.svg" alt="Trumpet Logo" width="100">
+<img src="https://raw.githubusercontent.com/devjoseruiz/trumpet-skeleton/refs/heads/master/src/public/assets/img/favicon.svg" alt="Trumpet Logo" width="100">
 
 A lightweight PHP framework for building web applications using the Model-View-Controller (MVC) pattern.
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
@@ -37,29 +35,27 @@ A lightweight PHP framework for building web applications using the Model-View-C
 
 ### Previus steps
 
-1. Clone the repository: `git clone https://github.com/devjoseruiz/trumpet-mvc-framework.git`.
-2. Create your own `.env` file based on the `.env.example` file: `cp .env.example .env`.
-3. Customize the `.env` file to fit your needs.
+1. Clone the repository: `git clone https://github.com/devjoseruiz/trumpet.git`.
 
 ### Docker installation (highly recommended)
 
-1. Navigate to the project directory: `cd trumpet-mvc-framework`.
+1. Navigate to the project directory: `cd trumpet`.
 2. Install the dependencies: `docker-compose exec php composer install`.
-3. Start the application: `docker-compose up -d`.
-4. Run the migrations: `docker-compose exec php php migrations.php`.
-5. You can access the application at `http://localhost:8080`.
+3. Start the development environment: `docker-compose up -d`.
 
 ### Local installation
 
-1. Navigate to the source directory: `cd trumpet-mvc-framework/src`.
+1. Navigate to the source directory: `cd trumpet`.
 2. Install the dependencies: `composer install`.
-3. Run the migrations: `php migrations.php`.
-4. Run the application: `php -S localhost:8080 -t public/`.
+
+## Documentation
+
+For a detailed guide on how to use Trumpet, refer to our [documentation](https://devjoseruiz.github.io/trumpet).
 
 ## Contributing
 
-We welcome contributions from the community. Please follow the [Contributing Guidelines](https://github.com/devjoseruiz/trumpet-mvc-framework/blob/master/CONTRIBUTING.md) to contribute to the project.
+We welcome contributions from the community. Please follow the [Contributing Guidelines](https://github.com/devjoseruiz/trumpet/blob/master/CONTRIBUTING.md) to contribute to the project.
 
 ## License
 
-This project is released under the [GPLv3 License](https://github.com/devjoseruiz/trumpet-mvc-framework/blob/master/LICENSE).
+This project is released under the [GPLv3 License](https://github.com/devjoseruiz/trumpet/blob/master/LICENSE).
