@@ -5,7 +5,7 @@ services:
       dockerfile: docker/php/Dockerfile
     container_name: trumpet-php
     volumes:
-      - ./src:/var/www/html
+      - .:/var/www/html
     working_dir: /var/www/html
     environment:
       - PHP_MEMORY_LIMIT=512M
@@ -24,7 +24,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./src:/var/www/html
+      - .:/var/www/html
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - php
