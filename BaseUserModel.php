@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 /**
  * BaseUserModel Abstract Class
@@ -24,7 +24,7 @@ namespace app\core;
  * }
  * ```
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */

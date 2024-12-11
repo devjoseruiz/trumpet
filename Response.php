@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 /**
  * Response Class
@@ -8,7 +8,7 @@ namespace app\core;
  * Handles HTTP responses in the Trumpet MVC Framework.
  * Provides methods for setting response status codes and redirecting.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */

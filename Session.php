@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 /**
  * Session Class
@@ -8,7 +8,7 @@ namespace app\core;
  * Handles session management in the Trumpet MVC Framework.
  * Provides methods for managing user data, flash messages, and temporary data with timeouts.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */
@@ -16,10 +16,10 @@ class Session
 {
     /** @var string Key for user-related session data */
     protected const USER_KEY = 'session_user_data';
-    
+
     /** @var string Key for flash messages */
     protected const FLASH_KEY = 'session_flash_data';
-    
+
     /** @var string Key for temporary session data */
     protected const TEMP_KEY = 'session_temp_data';
 

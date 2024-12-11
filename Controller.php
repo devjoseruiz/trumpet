@@ -1,8 +1,8 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
-use app\core\middlewares\BaseMiddleware;
+use devjoseruiz\trumpet\middlewares\BaseMiddleware;
 
 /**
  * Base Controller Class
@@ -10,7 +10,7 @@ use app\core\middlewares\BaseMiddleware;
  * This class serves as the base controller for all controllers in the Trumpet MVC Framework.
  * It provides core functionality for rendering views, managing layouts, and handling middleware.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 /**
  * Base Model Class
@@ -8,7 +8,7 @@ namespace app\core;
  * This abstract class serves as the foundation for all models in the Trumpet MVC Framework.
  * It provides core functionality for data validation, error handling, and data loading.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */

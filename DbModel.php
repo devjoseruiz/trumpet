@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 use Exception;
 
@@ -11,7 +11,7 @@ use Exception;
  * Provides basic database operations and ORM-like functionality.
  * Extends the base Model class with database-specific operations.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */

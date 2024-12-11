@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core\utils\form;
+namespace devjoseruiz\trumpet\utils\form;
 
 /**
  * DefaultTheme Class
@@ -9,7 +9,7 @@ namespace app\core\utils\form;
  * Implements a Bootstrap-like styling for form elements with support for
  * validation states and various input types.
  * 
- * @package app\core\utils\form
+ * @package devjoseruiz\trumpet\utils\form
  * @author Trumpet MVC Framework
  * @version 1.0
  */

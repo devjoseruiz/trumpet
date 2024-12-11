@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 /**
  * Router Class
@@ -8,7 +8,7 @@ namespace app\core;
  * Handles URL routing in the Trumpet MVC Framework.
  * Maps URLs to their corresponding controller actions and handles request resolution.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */
@@ -16,10 +16,10 @@ class Router
 {
     /** @var Request The request instance */
     public Request $request;
-    
+
     /** @var Response The response instance */
     public Response $response;
-    
+
     /** @var array Array of registered routes */
     protected array $routes = [];
 

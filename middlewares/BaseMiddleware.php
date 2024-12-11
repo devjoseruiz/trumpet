@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core\middlewares;
+namespace devjoseruiz\trumpet\middlewares;
 
 /**
  * BaseMiddleware Abstract Class
@@ -19,7 +19,7 @@ namespace app\core\middlewares;
  * }
  * ```
  * 
- * @package app\core\middlewares
+ * @package devjoseruiz\trumpet\middlewares
  * @author Trumpet MVC Framework
  * @version 1.0
  */

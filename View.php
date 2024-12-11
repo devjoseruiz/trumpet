@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 /**
  * View Class
@@ -9,7 +9,7 @@ namespace app\core;
  * Manages the rendering of views and layouts, combining them to create
  * the final HTML output. Supports model data injection into views.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */

@@ -1,5 +1,5 @@
 {
-    "name": "devjoseruiz/trumpet-mvc-framework-core",
+    "name": "devjoseruiz/trumpet",
     "description": "A lightweight PHP framework for building web applications using the MVC pattern",
     "type": "library",
     "license": "GPL-3.0-or-later",

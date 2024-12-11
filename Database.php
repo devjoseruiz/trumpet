@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 use Exception;
 use PDO;
@@ -12,7 +12,7 @@ use PDOStatement;
  * Handles database connections and operations in the Trumpet MVC Framework.
  * Provides functionality for migrations and basic database operations.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */

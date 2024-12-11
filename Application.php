@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 use Exception;
 
@@ -11,7 +11,7 @@ use Exception;
  * routing, and dependency management. It serves as the central point of the application,
  * managing components like routing, database connections, and user sessions.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */

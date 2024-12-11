@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core\utils\form;
+namespace devjoseruiz\trumpet\utils\form;
 
 /**
  * Theme Interface
@@ -9,7 +9,7 @@ namespace app\core\utils\form;
  * Themes are responsible for rendering form elements with consistent styling
  * and layout across the application.
  * 
- * @package app\core\utils\form
+ * @package devjoseruiz\trumpet\utils\form
  * @author Trumpet MVC Framework
  * @version 1.0
  */

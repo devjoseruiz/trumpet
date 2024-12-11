@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace devjoseruiz\trumpet;
 
 /**
  * Request Class
@@ -8,7 +8,7 @@ namespace app\core;
  * Handles HTTP requests in the Trumpet MVC Framework.
  * Provides methods for accessing request data, including path, method, and request body.
  * 
- * @package app\core
+ * @package devjoseruiz\trumpet
  * @author Trumpet MVC Framework
  * @version 1.0
  */

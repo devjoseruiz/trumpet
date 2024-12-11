@@ -1,8 +1,8 @@
 <?php
 
-namespace app\core\utils\form;
+namespace devjoseruiz\trumpet\utils\form;
 
-use app\core\Model;
+use devjoseruiz\trumpet\Model;
 
 /**
  * Field Class
@@ -11,7 +11,7 @@ use app\core\Model;
  * Provides a standardized way to create and render form fields with various input types,
  * supporting validation, theming, and error handling.
  * 
- * @package app\core\utils\form
+ * @package devjoseruiz\trumpet\utils\form
  * @author Trumpet MVC Framework
  * @version 1.0
  */

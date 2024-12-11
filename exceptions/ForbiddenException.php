@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core\exceptions;
+namespace devjoseruiz\trumpet\exceptions;
 
 use Exception;
 

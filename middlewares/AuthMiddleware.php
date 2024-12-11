@@ -1,9 +1,9 @@
 <?php
 
-namespace app\core\middlewares;
+namespace devjoseruiz\trumpet\middlewares;
 
-use app\core\Application;
-use app\core\exceptions\ForbiddenException;
+use devjoseruiz\trumpet\Application;
+use devjoseruiz\trumpet\exceptions\ForbiddenException;
 
 /**
  * AuthMiddleware Class
@@ -21,7 +21,7 @@ use app\core\exceptions\ForbiddenException;
  * $controller->registerMiddleware(new AuthMiddleware());
  * ```
  * 
- * @package app\core\middlewares
+ * @package devjoseruiz\trumpet\middlewares
  * @author Trumpet MVC Framework
  * @version 1.0
  */
