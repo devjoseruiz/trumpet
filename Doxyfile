@@ -1,12 +1,24 @@
 PROJECT_NAME           = "Trumpet MVC Framework"
-PROJECT_NUMBER         = 1.0
+PROJECT_NUMBER         = "1.0.0"
 PROJECT_BRIEF         = "A lightweight PHP framework for building web applications using the MVC pattern"
+PROJECT_LOGO          = docs-resources/logo.svg
 OUTPUT_DIRECTORY      = docs
 CREATE_SUBDIRS        = NO
 ALLOW_UNICODE_NAMES   = YES
 OUTPUT_LANGUAGE       = English
 BRIEF_MEMBER_DESC     = YES
 REPEAT_BRIEF          = YES
+ABBREVIATE_BRIEF     = "The $name class" \
+                     "The $name widget" \
+                     "The $name file" \
+                     is \
+                     provides \
+                     specifies \
+                     contains \
+                     represents \
+                     a \
+                     an \
+                     the
 ALWAYS_DETAILED_SEC   = NO
 INLINE_INHERITED_MEMB = NO
 FULL_PATH_NAMES      = YES
@@ -61,7 +73,7 @@ SORT_BY_SCOPE_NAME    = NO
 STRICT_PROTO_MATCHING = NO
 GENERATE_TODOLIST     = YES
 GENERATE_TESTLIST     = YES
-GENERATE_BUGLIST      = YES
+GENERATE_BUGLIST     = YES
 GENERATE_DEPRECATEDLIST = YES
 MAX_INITIALIZER_LINES = 30
 SHOW_USED_FILES       = YES
@@ -78,13 +90,22 @@ WARN_NO_PARAMDOC     = NO
 WARN_AS_ERROR        = NO
 WARN_FORMAT          = "$file:$line: $text"
 WARN_LOGFILE         = 
-INPUT                = src docs-resources/mainpage.dox
+INPUT                = ./ \
+                      ./exceptions \
+                      ./middlewares \
+                      ./utils \
+                      docs-resources/mainpage.dox
 INPUT_ENCODING       = UTF-8
 FILE_PATTERNS        = *.php
 RECURSIVE            = YES
-EXCLUDE              = vendor/
+EXCLUDE              = vendor \
+                      docs \
+                      docker
 EXCLUDE_SYMLINKS     = NO
-EXCLUDE_PATTERNS     = */vendor/*
+EXCLUDE_PATTERNS     = */vendor/* \
+                      */docs/* \
+                      */docker/* \
+                      */tests/*
 EXCLUDE_SYMBOLS      = 
 EXAMPLE_PATH         = 
 EXAMPLE_PATTERNS     = *
@@ -107,7 +128,7 @@ USE_HTAGS           = NO
 VERBATIM_HEADERS    = YES
 ALPHABETICAL_INDEX  = YES
 IGNORE_PREFIX       = 
-GENERATE_HTML       = YES
+GENERATE_HTML        = YES
 HTML_OUTPUT         = html
 HTML_FILE_EXTENSION = .html
 HTML_HEADER         = 
@@ -142,20 +163,16 @@ QHG_LOCATION        =
 GENERATE_ECLIPSEHELP = NO
 ECLIPSE_DOC_ID      = org.doxygen.Project
 DISABLE_INDEX       = NO
-FULL_SIDEBAR         = NO
+FULL_SIDEBAR        = NO
 GENERATE_TREEVIEW   = YES
 ENUM_VALUES_PER_LINE = 4
 TREEVIEW_WIDTH      = 250
 EXT_LINKS_IN_WINDOW = NO
-HTML_FORMULA_FORMAT = png
 FORMULA_FONTSIZE    = 10
 FORMULA_TRANSPARENT = YES
-FORMULA_MACROFILE   = 
 USE_MATHJAX         = NO
 MATHJAX_FORMAT      = HTML-CSS
-MATHJAX_RELPATH     = https://cdn.jsdelivr.net/npm/mathjax@2
-MATHJAX_EXTENSIONS  = 
-MATHJAX_CODEFILE    = 
+MATHJAX_RELPATH     = https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/
 SEARCHENGINE        = YES
 SERVER_BASED_SEARCH = NO
 EXTERNAL_SEARCH     = NO
@@ -169,11 +186,18 @@ INTERACTIVE_SVG      = YES
 DOT_TRANSPARENT      = YES
 CLASS_GRAPH          = YES
 COLLABORATION_GRAPH  = YES
+GROUP_GRAPHS        = YES
 UML_LOOK            = YES
 UML_LIMIT_NUM_FIELDS = 50
-TEMPLATE_RELATIONS   = YES
-DOT_GRAPH_MAX_NODES  = 100
-MAX_DOT_GRAPH_DEPTH  = 0
-DOT_MULTI_TARGETS   = YES
-GENERATE_LEGEND      = YES
+DOT_UML_DETAILS    = YES
+DOT_WRAP_THRESHOLD = 17
+TEMPLATE_RELATIONS = YES
+INCLUDE_GRAPH      = YES
+INCLUDED_BY_GRAPH  = YES
+CALL_GRAPH         = YES
+CALLER_GRAPH       = YES
+GRAPHICAL_HIERARCHY = YES
+DIRECTORY_GRAPH    = YES
+DIR_GRAPH_MAX_DEPTH = 1
+GENERATE_LEGEND    = YES
 GENERATE_LATEX      = NO
